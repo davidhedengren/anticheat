@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="sv">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Textklang — lyssna på textens struktur</title><link rel="stylesheet" href="/static/style.css"><script src="/static/app.js" defer></script></head>
+<body>
+<header><a class="brand" href="/" aria-label="Textklang, startsida"><span class="brand-icon">≋</span> textklang<span class="version">v2.10</span></a><span class="header-note">Ett nytt sätt att undersöka text</span></header>
+<main>
+<section class="intro"><p class="eyebrow">TEXT → STRUKTUR → LJUD</p><h1>Hur låter en text?</h1><p class="lead">Lyssna på språkliga mönster. Se fraspar, listor och kontraster växa fram — och upptäck var de samlas.</p></section>
+<div class="workspace">
+<section class="panel input-panel"><div class="section-top"><h2><span class="step">01</span> Din text</h2><button id="example" class="text-button" type="button">Prova en exempeltext ↗</button></div>
+<label for="text" class="sr-only">Klistra in svensk text</label><textarea id="text" placeholder="Klistra in en svensk text här…" maxlength="120000"></textarea>
+<div class="input-meta"><span id="word-count">0 ord</span><span>Max 12 000 ord</span></div>
+<label class="upload" id="upload-zone" for="file"><span class="upload-icon">↑</span><span><strong id="file-label">Välj en textfil</strong><small>TXT eller DOCX · max 2 MB</small></span><input id="file" type="file" accept=".txt,.docx"><span class="file-action">Välj fil</span></label><button id="clear-file" class="text-button" type="button" hidden>Ta bort vald fil</button>
+<button id="analyze" class="primary" type="button">Analysera & lyssna <span>→</span></button><p id="status" role="status" aria-live="polite"></p>
+<p class="privacy">Texten behandlas på servern för den här analysen och sparas inte av appen. Inga externa AI-tjänster används.</p></section>
+<section class="panel result-panel"><div class="section-top"><h2><span class="step">02</span> Textens ljudbild</h2><span class="live-label" id="result-label">VÄNTAR PÅ TEXT</span></div>
+<div id="empty"><div class="empty-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><h3>Från ord till ljud.</h3><p>Analysera en text för att höra dess struktur<br>och följa signalerna längs tidslinjen.</p></div>
+<div id="results" hidden><div class="metrics"><div><strong id="metric-words">—</strong><span>ord i texten</span></div><div><strong id="metric-pairs">—</strong><span>hörbara fraspar</span></div><div><strong id="metric-triads">—</strong><span>hörbara treled</span></div></div>
+<div class="visual"><canvas id="timeline" aria-label="Ljudhändelser längs textens tidslinje"></canvas><div class="visual-footer"><span id="position">Ord 0</span><span id="time">0:00 / 0:00</span></div></div>
+<audio id="audio" controls preload="metadata"></audio><div class="play-options"><label for="speed">Uppspelning</label><select id="speed"><option value="0.25">0,25× — utforska</option><option value="0.5">0,5× — långsamt</option><option value="1" selected>1× — original</option></select></div>
+<div class="now"><span class="eyebrow">JUST NU</span><p id="now-text" aria-live="off">Tryck på spela för att följa ljudhändelserna.</p></div>
+<div class="downloads"><button id="download-wav" type="button">↓ Ljud · WAV</button><button id="download-json" type="button">↓ Rapport · JSON</button><button id="download-csv" type="button">↓ Mått · CSV</button></div>
+<details><summary>Visa analysens mått och textutdrag</summary><p class="index-note">Stilindex: <strong id="style-index"></strong>. Ett heuristiskt mått på stilistiska mönster, inte sannolikheten för AI eller fusk.</p><ul id="reasons"></ul><div id="examples"></div></details></div>
+</section></div>
+<section class="guide"><div class="guide-heading"><div><p class="eyebrow">LYSSNINGSGUIDE</p><h2>Varje ljud berättar något.</h2></div><p>Klicka på en signal för att lyssna på den separat.</p></div><div id="sound-guide" class="guide-grid"></div></section>
+<aside class="notice"><span>i</span><div><strong>Mönster är ett samtalsunderlag.</strong><p>Analysen visar språkliga strukturer. Den fastställer inte författarskap eller AI-användning och kan inte avgöra om en student har fuskat. Använd resultatet tillsammans med texten, tidigare arbeten och ett samtal med studenten.</p></div></aside>
+</main><footer><span>Textklang</span><span>Transparent regelbaserad analys · AI Style Triage 2.10</span></footer>
+</body></html>

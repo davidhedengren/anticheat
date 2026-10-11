@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: textklang
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
