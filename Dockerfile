@@ -6,7 +6,7 @@ RUN pip install --no-cache-dir -r requirements.txt -c requirements.lock
 COPY app.py sonification.py ./
 COPY vendor ./vendor
 COPY static ./static
-RUN useradd --create-home --uid 10001 app
+RUN chmod -R a+rX /app && useradd --create-home --uid 10001 app
 USER app
 EXPOSE 8000
 CMD ["sh", "-c", "exec uvicorn app:app --host 0.0.0.0 --port ${PORT:-8000}"]
